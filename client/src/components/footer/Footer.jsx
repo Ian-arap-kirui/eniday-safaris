@@ -45,7 +45,7 @@ const Footer = () => {
           <div className="grid md:grid-cols-3 py-5 bg-white/80 backdrop-blur-sm rounded-t-xl">
             <div className="py-8 px-4">
               <h1 className="flex items-center gap-3 text-xl sm:text-3xl font-bold text-justify sm:text-left">
-                <img src={FooterLogo} alt="" className="max-h-[60px]" />
+                <img src={""} alt="Footer Logo" className="max-h-[60px]" />
                 {/* TravelloGo */}
               </h1>
               <p className="text-sm">
@@ -56,11 +56,11 @@ const Footer = () => {
               <br />
               <div className="flex items-center gap-3 ">
                 <FaLocationArrow />
-                <p>Noida, Uttar Pradesh</p>
+                <p>Eniday Safaris</p>
               </div>
               <div className="flex items-center gap-3 mt-3">
                 <FaMobileAlt />
-                <p>+91 123456789</p>
+                <p>+254-722-776-1899</p>
               </div>
               {/* social handles */}
               <div>
@@ -142,7 +142,7 @@ const Footer = () => {
           </div>
           <div>
             <div className="text-center py-5 border-t-2 border-gray-300/50 bg-primary text-white">
-              @copyright 2024 All rights reserved || Made with ❤️ by Dilshad
+              @copyright 2024 All rights reserved
             </div>
           </div>
         </div>
