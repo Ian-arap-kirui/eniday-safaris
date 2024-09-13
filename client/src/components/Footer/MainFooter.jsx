@@ -29,7 +29,7 @@ const FooterLinks = [
   },
 ];
 
-const Footer = () => {
+const MainFooter = () => {
   return (
     <>
       <div className=" dark:bg-gray-950 py-10 relative overflow-hidden">
@@ -151,4 +151,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default MainFooter;
