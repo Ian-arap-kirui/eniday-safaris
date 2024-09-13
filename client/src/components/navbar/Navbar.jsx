@@ -39,7 +39,7 @@ const DropdownLinks = [
   },
 ];
 
-const Navbar = ({ handleOrderPopup }) => {
+const NavBar = ({ handleOrderPopup }) => {
   const [showMenu, setShowMenu] = useState(false);
 
   const toggleMenu = () => {
@@ -147,4 +147,4 @@ const Navbar = ({ handleOrderPopup }) => {
   );
 };
 
-export default Navbar;
+export default NavBar;
