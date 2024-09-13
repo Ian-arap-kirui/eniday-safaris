@@ -1,9 +1,8 @@
 import React from "react";
-
-import { Outlet } from "react-router-dom";
-import OrderPopup from "../components/OrderPopup/OrderPopup";
 import NavBar from "../components/Navbar/NavBar";
+import OrderPopup from "../components/OrderPopup/OrderPopup";
 import MainFooter from "../components/Footer/MainFooter";
+import { Outlet } from "react-router-dom";
 
 const Layout = () => {
   const [orderPopup, setOrderPopup] = React.useState(false);

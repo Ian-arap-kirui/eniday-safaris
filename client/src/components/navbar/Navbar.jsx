@@ -4,40 +4,7 @@ import { NavLink, Link } from "react-router-dom";
 import { FaCaretDown } from "react-icons/fa";
 import ResponsiveMenu from "./ResponsiveMenu";
 import { HiMenuAlt3, HiMenuAlt1 } from "react-icons/hi";
-
-export const NavbarLinks = [
-  {
-    name: "Home",
-    link: "/",
-  },
-  {
-    name: "About",
-    link: "/about",
-  },
-  {
-    name: "Blogs",
-    link: "/blogs",
-  },
-  {
-    name: "Best Places",
-    link: "/best-places",
-  },
-];
-
-const DropdownLinks = [
-  {
-    name: "Our Services",
-    link: "/#services",
-  },
-  {
-    name: "Top Brands",
-    link: "/#mobile_brands",
-  },
-  {
-    name: "Location",
-    link: "/#location",
-  },
-];
+import { DropdownLinks } from "../../utils/data";
 
 const NavBar = ({ handleOrderPopup }) => {
   const [showMenu, setShowMenu] = useState(false);
