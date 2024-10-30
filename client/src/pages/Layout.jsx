@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../components/Navbar/Navbar";
+import Navibar from "../components/Navibar/Navibar";
 import { Outlet, Link } from "react-router-dom";
 import Footer from "../components/Footer/Footer";
 import OrderPopup from "../components/OrderPopup/OrderPopup";
@@ -12,7 +12,7 @@ const Layout = () => {
   };
   return (
     <>
-      <Navbar handleOrderPopup={handleOrderPopup} />
+      <Navibar handleOrderPopup={handleOrderPopup} />
       <Outlet />
       <Footer />
       <OrderPopup orderPopup={orderPopup} setOrderPopup={setOrderPopup} />
