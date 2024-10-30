@@ -1,8 +1,8 @@
 import React from "react";
-import NavBar from "../components/Navbar/NavBar.jsx";
-import OrderPopup from "../components/OrderPopup/OrderPopup.jsx";
-import MainFooter from "../components/Footer/MainFooter.jsx";
-import { Outlet } from "react-router-dom";
+import Navbar from "../components/Navbar/Navbar";
+import { Outlet, Link } from "react-router-dom";
+import Footer from "../components/Footer/Footer";
+import OrderPopup from "../components/OrderPopup/OrderPopup";
 
 const Layout = () => {
   const [orderPopup, setOrderPopup] = React.useState(false);
@@ -12,9 +12,9 @@ const Layout = () => {
   };
   return (
     <>
-      <NavBar handleOrderPopup={handleOrderPopup} />
+      <Navbar handleOrderPopup={handleOrderPopup} />
       <Outlet />
-      <MainFooter />
+      <Footer />
       <OrderPopup orderPopup={orderPopup} setOrderPopup={setOrderPopup} />
     </>
   );

@@ -1,12 +1,45 @@
 import React, { useState } from "react";
-// import Logo from "../../assets/logo.png";
+import Logo from "../../assets/logo.png";
 import { NavLink, Link } from "react-router-dom";
 import { FaCaretDown } from "react-icons/fa";
 import ResponsiveMenu from "./ResponsiveMenu";
 import { HiMenuAlt3, HiMenuAlt1 } from "react-icons/hi";
-import { DropdownLinks } from "../../utils/data";
 
-const NavBar = ({ handleOrderPopup }) => {
+export const NavbarLinks = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "About",
+    link: "/about",
+  },
+  {
+    name: "Blogs",
+    link: "/blogs",
+  },
+  {
+    name: "Best Places",
+    link: "/best-places",
+  },
+];
+
+const DropdownLinks = [
+  {
+    name: "Our Services",
+    link: "/#services",
+  },
+  {
+    name: "Top Brands",
+    link: "/#mobile_brands",
+  },
+  {
+    name: "Location",
+    link: "/#location",
+  },
+];
+
+const Navbar = ({ handleOrderPopup }) => {
   const [showMenu, setShowMenu] = useState(false);
 
   const toggleMenu = () => {
@@ -19,7 +52,7 @@ const NavBar = ({ handleOrderPopup }) => {
           <div className="container py-[2px] sm:block hidden">
             <div className="flex items-center justify-between">
               <p className="text-sm">20% off on next booking</p>
-              <p>call us on: +254-722-776-189</p>
+              <p>mobile no. +91 123456789</p>
             </div>
           </div>
         </div>
@@ -27,7 +60,7 @@ const NavBar = ({ handleOrderPopup }) => {
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-4  font-bold text-2xl">
               <Link to={"/"} onClick={() => window.scrollTo(0, 0)}>
-                <img src={""} alt="eniday logo" className="h-16" />
+                <img src={Logo} alt="" className="h-16" />
               </Link>
               {/* <span>TCJ Tourism</span> */}
             </div>
@@ -114,4 +147,4 @@ const NavBar = ({ handleOrderPopup }) => {
   );
 };
 
-export default NavBar;
+export default Navbar;

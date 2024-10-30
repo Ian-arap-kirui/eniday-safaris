@@ -29,7 +29,7 @@ const FooterLinks = [
   },
 ];
 
-const MainFooter = () => {
+const Footer = () => {
   return (
     <>
       <div className=" dark:bg-gray-950 py-10 relative overflow-hidden">
@@ -45,7 +45,7 @@ const MainFooter = () => {
           <div className="grid md:grid-cols-3 py-5 bg-white/80 backdrop-blur-sm rounded-t-xl">
             <div className="py-8 px-4">
               <h1 className="flex items-center gap-3 text-xl sm:text-3xl font-bold text-justify sm:text-left">
-                <img src={""} alt="Footer Logo" className="max-h-[60px]" />
+                <img src={FooterLogo} alt="" className="max-h-[60px]" />
                 {/* TravelloGo */}
               </h1>
               <p className="text-sm">
@@ -56,11 +56,11 @@ const MainFooter = () => {
               <br />
               <div className="flex items-center gap-3 ">
                 <FaLocationArrow />
-                <p>Eniday Safaris</p>
+                <p>Noida, Uttar Pradesh</p>
               </div>
               <div className="flex items-center gap-3 mt-3">
                 <FaMobileAlt />
-                <p>+254-722-776-1899</p>
+                <p>+91 123456789</p>
               </div>
               {/* social handles */}
               <div>
@@ -142,7 +142,7 @@ const MainFooter = () => {
           </div>
           <div>
             <div className="text-center py-5 border-t-2 border-gray-300/50 bg-primary text-white">
-              @copyright 2024 All rights reserved
+              @copyright 2024 All rights reserved || Made with ❤️ by Dilshad
             </div>
           </div>
         </div>
@@ -151,4 +151,4 @@ const MainFooter = () => {
   );
 };
 
-export default MainFooter;
+export default Footer;
