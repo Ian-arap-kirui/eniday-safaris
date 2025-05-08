@@ -9,6 +9,7 @@ import BannerPic from "../components/BannerPic/BannerPic";
 import BannerImg from "../assets/cover-women.jpg";
 import Banner2 from "../assets/travel-cover2.jpg";
 import OrderPopup from "../components/OrderPopup/OrderPopup";
+import AITravelAssistant from "../components/AiTravelAssistant/AITravelAssistant";
 
 const Home = () => {
   const [orderPopup, setOrderPopup] = React.useState(false);
@@ -31,12 +32,13 @@ const Home = () => {
           <Hero />
         </div>
         <Places handleOrderPopup={handleOrderPopup} />
-        <BannerPic img={BannerImg} />
+        <BannerPic img={"https://images.pexels.com/photos/386000/pexels-photo-386000.jpeg?auto=compress&cs=tinysrgb&w=600"} />
         <BlogsComp />
         <Banner />
-        <BannerPic img={Banner2} />
+        <BannerPic img={"https://images.pexels.com/photos/386000/pexels-photo-386000.jpeg?auto=compress&cs=tinysrgb&w=600"} />
         <Testimonial />
         <OrderPopup orderPopup={orderPopup} setOrderPopup={setOrderPopup} />
+        <AITravelAssistant/>
       </div>
     </>
   );

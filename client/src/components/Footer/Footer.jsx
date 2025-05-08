@@ -49,9 +49,10 @@ const Footer = () => {
                 {/* TravelloGo */}
               </h1>
               <p className="text-sm">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde
-                facere ab hic accusamus omnis dolor voluptatibus illo, tempore
-                eum tenetur.
+                To inspire unforgettable journeys across Kenya by connecting
+                travelers with authentic wildlife adventures, pristine beaches,
+                and vibrant cultural experiences—all while promoting sustainable
+                tourism that benefits local communities.
               </p>
               <br />
               <div className="flex items-center gap-3 ">
@@ -102,13 +103,9 @@ const Footer = () => {
                   </ul>
                 </div>
               </div>
-              
-             
             </div>
           </div>
-          <div>
-         
-          </div>
+          <div></div>
         </div>
       </div>
     </>

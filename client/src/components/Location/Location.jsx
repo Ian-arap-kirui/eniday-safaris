@@ -11,7 +11,7 @@ const Location = () => {
           </h1>
 
           <div className="rounded-xl ">
-            <iframe
+            {/* <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7116.040113933064!2d83.97168138953894!3d26.90285855661167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39938d631905f7c1%3A0x189dbadf0b42da46!2sNew%20Mobile%20World!5e0!3m2!1sen!2sin!4v1700902186385!5m2!1sen!2sin"
               width="100%"
               height="360"
@@ -19,6 +19,15 @@ const Location = () => {
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
               style={{ borderRadius: "20px" }}
+              ></iframe> */}
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d255282.32335424496!2d36.84739685!3d-1.3032089500000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1172d84d49a7%3A0xf7cf0254b297924c!2sNairobi!5e0!3m2!1sen!2ske!4v1746735044773!5m2!1sen!2ske"
+              width="100%"
+              height="450"
+              allowfullscreen=""
+              style={{ borderRadius: "20px" }}
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
         </div>

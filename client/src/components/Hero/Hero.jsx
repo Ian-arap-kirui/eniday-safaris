@@ -1,43 +1,66 @@
 import React from "react";
+import { motion } from "framer-motion"; // Replaces AOS for smoother animations
 
 const Hero = () => {
   return (
-    <div className="relative h-full bg-black/20">
-      {/* Overlay for contrast */}
-      <div className="absolute inset-0 bg-black/40"></div>
+    <section className="relative h-full w-full">
+      {/* Video overlay with better contrast */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-black/30 z-0"></div>
 
-      {/* Content */}
-      <div className="relative h-full flex justify-center items-center p-4">
-        <div className="container text-center text-white space-y-4">
-          <p data-aos="fade-up" className="text-lg md:text-xl">
-            Welcome to Eniday Tours and Travels
-          </p>
-          <h1
-            data-aos="fade-up"
-            data-aos-delay="300"
-            className="font-bold text-4xl md:text-5xl"
+      {/* Content container */}
+      <div className="relative h-full flex items-center justify-center p-4 z-10">
+        <div className="container max-w-4xl text-center text-white space-y-6 px-4">
+          {/* Tagline - More emphasis on brand */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-lg md:text-xl font-medium text-primary-200"
           >
-            Your Journey Begins Here!
-          </h1>
-          <p
-            data-aos="fade-up"
-            data-aos-delay="500"
-            className="text-lg md:text-xl opacity-80"
+            Eniday Tours and Travels
+          </motion.p>
+
+          {/* Main heading - More impactful */}
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-4xl md:text-6xl font-bold leading-tight"
           >
-            Discover the world’s most breathtaking destinations and experience
-            travel like never before. At Eniday, every journey is designed to
-            inspire and create unforgettable memories.
-          </p>
-          <button
-            data-aos="fade-up"
-            data-aos-delay="700"
-            className="bg-gradient-to-r from-primary to-secondary text-white hover:scale-105 px-6 py-3 rounded-full duration-200"
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+              Unforgettable
+            </span>{" "}
+            Kenyan Adventures
+          </motion.h1>
+
+          {/* Subheading - More concise and compelling */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="text-lg md:text-xl opacity-90 max-w-2xl mx-auto"
           >
-            Start Exploring
-          </button>
+            Experience Africa's wonders with our expertly curated safaris, beach getaways, and cultural journeys.
+          </motion.p>
+
+          {/* CTA Button - More prominent */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="pt-2"
+          >
+            <button
+              className="relative px-8 py-3 md:px-10 md:py-4 bg-gradient-to-r from-primary to-secondary text-white font-semibold rounded-full hover:shadow-xl transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-black/30"
+              aria-label="Explore our travel packages"
+            >
+              Start Your Journey
+              <span className="absolute inset-0 rounded-full bg-white opacity-0 hover:opacity-10 transition-opacity duration-300"></span>
+            </button>
+          </motion.div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
