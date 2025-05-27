@@ -91,7 +91,7 @@ const Navibar = ({ handleOrderPopup }) => {
                   </NavLink>
                 </li>
                 
-                <li className="group relative cursor-pointer">
+                {/* <li className="group relative cursor-pointer">
                   <a
                     href="/#home"
                     className="flex h-[72px] items-center gap-[2px]"
@@ -115,7 +115,7 @@ const Navibar = ({ handleOrderPopup }) => {
                       ))}
                     </ul>
                   </div>
-                </li>
+                </li> */}
                 <li className="py-4">
                   <NavLink to="/about" activeClassName="active">
                     About
