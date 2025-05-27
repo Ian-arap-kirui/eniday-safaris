@@ -5,7 +5,7 @@ const BlogCard = ({ image, date, title, description, author }) => {
   return (
     <>
       <Link
-        to={`/blogs/${title}`}
+        to={`/packages/${title.replace(/\s+/g, '_')}`}
         onClick={() => {
           window.scrollTo(0, 0);
           // window.scroll({

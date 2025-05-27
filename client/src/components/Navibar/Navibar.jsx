@@ -22,20 +22,24 @@ export const NavbarLinks = [
     name: "Best Places",
     link: "/best-places",
   },
+  {
+    name: "Packages",
+    link: "/packages",
+  },
 ];
 
 const DropdownLinks = [
   {
-    name: "Our Services",
-    link: "/#services",
+    name: "Safaris",
+    link: "/packages",
   },
   {
-    name: "Top Brands",
-    link: "/#mobile_brands",
+    name: "Beaches",
+    link: "/packages",
   },
   {
-    name: "Location",
-    link: "/#location",
+    name: "Themed holidays",
+    link: "/packages",
   },
 ];
 
@@ -72,8 +76,8 @@ const Navibar = ({ handleOrderPopup }) => {
                   </NavLink>
                 </li>
                 <li className="py-4">
-                  <NavLink to="/blogs" activeClassName="active">
-                    Blogs
+                  <NavLink to="/packages" activeClassName="active">
+                    Packages
                   </NavLink>
                 </li>
                 <li className="py-4">
@@ -82,16 +86,17 @@ const Navibar = ({ handleOrderPopup }) => {
                   </NavLink>
                 </li>
                 <li className="py-4">
-                  <NavLink to="/about" activeClassName="active">
-                    About
+                  <NavLink to="/blogs" activeClassName="active">
+                    Blogs
                   </NavLink>
                 </li>
+                
                 <li className="group relative cursor-pointer">
                   <a
                     href="/#home"
                     className="flex h-[72px] items-center gap-[2px]"
                   >
-                    Quick Links{" "}
+                  Recommendations
                     <span>
                       <FaCaretDown className="transition-all duration-200 group-hover:rotate-180" />
                     </span>
@@ -110,6 +115,11 @@ const Navibar = ({ handleOrderPopup }) => {
                       ))}
                     </ul>
                   </div>
+                </li>
+                <li className="py-4">
+                  <NavLink to="/about" activeClassName="active">
+                    About
+                  </NavLink>
                 </li>
               </ul>
             </div>

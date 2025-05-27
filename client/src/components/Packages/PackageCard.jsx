@@ -2,7 +2,7 @@ import React from "react";
 import { IoLocationSharp } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
-const PlaceCard = ({
+const PackageCard = ({
   img,
   title,
   location,
@@ -14,7 +14,7 @@ const PlaceCard = ({
   return (
     <>
       <Link
-    to={`/packages/${title.replace(/\s+/g, '_')}`}
+        to={`/packages/${title.replace(/\s+/g, '_')}`}
         onClick={() => {
           window.scrollTo(0, 0);
           // window.scroll({
@@ -27,7 +27,7 @@ const PlaceCard = ({
       >
         <div
           className="shadow-lg transition-all duration-500 hover:shadow-xl dark:bg-slate-950 dark:text-white cursor-pointer"
-          onClick={handleOrderPopup}
+          // onClick={handleOrderPopup}
         >
           <div className="overflow-hidden">
             <img
@@ -59,4 +59,4 @@ const PlaceCard = ({
   );
 };
 
-export default PlaceCard;
+export default PackageCard;
