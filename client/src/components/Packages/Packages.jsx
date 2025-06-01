@@ -13,25 +13,28 @@ const Packages = ({ handleOrderPopup }) => {
   // Popular search suggestions
   const popularSearches = [
     "Maasai Mara",
-    "Beach Holidays",
-    "Mountain Climbing",
-    "Cultural Tours",
-    "Luxury Safaris",
-    "Family Getaways"
+    "Lamu",
+    "Safari",
+    "Mount Kenya",
+    "National Park",
+    "Adventure",
+    "Wildlife",
+    "Beach",
   ];
 
   // Filter packages based on search term
-  const filteredPackages = tourPackages.filter((pkg) =>
-    pkg.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    pkg.location.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    pkg.type.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredPackages = tourPackages.filter(
+    (pkg) =>
+      pkg.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      pkg.location.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      pkg.type.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   useEffect(() => {
     if (searchTerm) {
       setIsLoading(true);
       setShowResults(false);
-      
+
       const timer = setTimeout(() => {
         setIsLoading(false);
         setShowResults(true);
@@ -66,7 +69,7 @@ const Packages = ({ handleOrderPopup }) => {
                 </p>
               </div>
             </div>
-            
+
             <div className="flex flex-wrap gap-2">
               {popularSearches.map((search, index) => (
                 <button
@@ -86,7 +89,7 @@ const Packages = ({ handleOrderPopup }) => {
         </div>
 
         <div>
-          <SearchInput 
+          <SearchInput
             searchTerm={searchTerm}
             setSearchTerm={(term) => {
               setSearchTerm(term);
