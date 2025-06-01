@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import BlogsComp from "../components/Blogs/BlogsComp";
 import { FiCalendar, FiMapPin, FiDollarSign, FiInfo, FiStar, FiClock } from "react-icons/fi";
+import OrderPopup from "../components/OrderPopup/OrderPopup"; // Add this import
 
 const PackageDetails = () => {
   const location = useLocation();
   const { img, date, title, description, author, price, itinerary, overview, specialNotes, additionalInfo } = location.state;
   
   const [activeTab, setActiveTab] = useState('overview');
-  
+   const [orderPopup, setOrderPopup] = useState(false); // For popup visibility
   // Sample itinerary data if not provided
   const defaultItinerary = [
     { day: 1, activity: "Arrival and welcome dinner", description: "Arrive at the destination and enjoy a traditional welcome dinner." },
@@ -20,6 +21,8 @@ const PackageDetails = () => {
 
   return (
     <div className="pt-20">
+      {/* Add the OrderPopup component near the top of your return */}
+       <OrderPopup orderPopup={orderPopup} setOrderPopup={setOrderPopup} />
       {/* Hero Image */}
       <div className="h-[400px] overflow-hidden relative">
         <img
@@ -51,7 +54,11 @@ const PackageDetails = () => {
                 <span className="text-gray-500 ml-2">per person</span>
               </div>
             </div>
-            <button className="mt-4 md:mt-0 px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors font-medium">
+          
+            <button 
+              onClick={() => setOrderPopup(true)}
+              className="mt-4 md:mt-0 px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors font-medium"
+            >
               Book Now
             </button>
           </div>
