@@ -1,5 +1,5 @@
 import React from "react";
-import FooterLogo from "../../assets/logo-eniday.svg";
+import FooterLogo from "../../assets/logo-eniday-v3.svg";
 import {
   FaFacebook,
   FaInstagram,
