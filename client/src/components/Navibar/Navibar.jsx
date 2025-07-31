@@ -4,6 +4,7 @@ import { NavLink, Link } from "react-router-dom";
 import { FaCaretDown } from "react-icons/fa";
 import ResponsiveMenu from "./ResponsiveMenu";
 import { HiMenuAlt3, HiMenuAlt1 } from "react-icons/hi";
+import { IoIosMail } from "react-icons/io";
 
 export const NavbarLinks = [
   {
@@ -56,7 +57,14 @@ const Navibar = ({ handleOrderPopup }) => {
           <div className="container py-[2px] sm:block hidden">
             <div className="flex items-center justify-between">
               <p className="text-sm">20% off on next booking</p>
-              <p>mobile no. +254-722-776-189</p>
+              <p>
+                {/* {" "}
+                <span>
+                  <IoIosMail />{" "}
+                </span> */}
+                reach us through <b>info@eniday.com</b>
+              </p>
+              <p>mobile/whatsapp no. +254-740-415-196</p>
             </div>
           </div>
         </div>
@@ -90,7 +98,7 @@ const Navibar = ({ handleOrderPopup }) => {
                     Blogs
                   </NavLink>
                 </li>
-                
+
                 {/* <li className="group relative cursor-pointer">
                   <a
                     href="/#home"

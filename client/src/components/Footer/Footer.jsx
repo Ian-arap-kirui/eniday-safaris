@@ -1,14 +1,17 @@
 import React from "react";
 import FooterLogo from "../../assets/logo-eniday-v3.svg";
 import {
+  FaAddressBook,
   FaFacebook,
   FaInstagram,
   FaLinkedin,
   FaLocationArrow,
+  FaMailBulk,
   FaMobileAlt,
 } from "react-icons/fa";
 import NatureVid from "../../assets/video/footer.mp4";
 import { Link } from "react-router-dom";
+import { IoIosMail } from "react-icons/io";
 
 const FooterLinks = [
   {
@@ -67,6 +70,11 @@ const Footer = () => {
                 <FaMobileAlt />
                 <p>+254-740-415-196</p>
               </div>
+              <div className="flex items-center gap-3 mt-3">
+               
+                <IoIosMail />
+                <p>info@eniday.com</p>
+              </div>
               {/* social handles */}
               <div>
                 <div className="flex items-center gap-3 mt-6">
@@ -95,7 +103,7 @@ const Footer = () => {
                           to={link.link}
                           onClick={() => window.scrollTo(0, 0)}
                         >
-                          <span>&#11162;</span>
+                          
                           <span>{link.title}</span>
                         </Link>
                       </li>
