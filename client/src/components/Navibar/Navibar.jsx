@@ -44,7 +44,7 @@ const DropdownLinks = [
   },
 ];
 
-const Navibar = ({ handleOrderPopup }) => {
+const Navibar = ({ handleInquiryPopup }) => {
   const [showMenu, setShowMenu] = useState(false);
 
   const toggleMenu = () => {
@@ -62,7 +62,7 @@ const Navibar = ({ handleOrderPopup }) => {
                 <span>
                   <IoIosMail />{" "}
                 </span> */}
-                reach us through <b>info@eniday.com</b>
+                reach us through <b>info@enidaytours.com</b>
               </p>
               <p>mobile/whatsapp no. +254-740-415-196</p>
             </div>
@@ -133,13 +133,14 @@ const Navibar = ({ handleOrderPopup }) => {
             </div>
             <div className="flex items-center gap-4">
               <button
-                className="bg-gradient-to-r from-primary to-secondary hover:bg-bg-gradient-to-r hover:from-secondary hover:bg-primary transition-all duration-600 text-white px-3 py-1 rounded-full"
+                className="bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary transition-all duration-600 text-white px-3 py-1 rounded-full"
                 onClick={() => {
-                  handleOrderPopup();
+                  handleInquiryPopup();
                 }}
               >
-                Book Now
+                Contact Us
               </button>
+
               {/* Mobile Hamburger icon */}
               <div className="md:hidden block">
                 {showMenu ? (

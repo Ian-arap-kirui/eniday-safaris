@@ -1,28 +1,66 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import BlogsComp from "../components/Blogs/BlogsComp";
-import { FiCalendar, FiMapPin, FiDollarSign, FiInfo, FiStar, FiClock } from "react-icons/fi";
+import {
+  FiCalendar,
+  FiMapPin,
+  FiDollarSign,
+  FiInfo,
+  FiStar,
+  FiClock,
+} from "react-icons/fi";
 import OrderPopup from "../components/OrderPopup/OrderPopup"; // Add this import
-
+import InquiryPopup from "../components/OrderPopup/InquiryPopup";
 const PackageDetails = () => {
   const location = useLocation();
-  const { img, date, title, description, author, price, itinerary, overview, specialNotes, additionalInfo } = location.state;
-  
-  const [activeTab, setActiveTab] = useState('overview');
-   const [orderPopup, setOrderPopup] = useState(false); // For popup visibility
+  const {
+    img,
+    date,
+    title,
+    description,
+    author,
+    price,
+    itinerary,
+    overview,
+    specialNotes,
+    additionalInfo,
+  } = location.state;
+
+  const [activeTab, setActiveTab] = useState("overview");
+  const [orderPopup, setOrderPopup] = useState(false); // For popup visibility
+  const [inquiryPopup, setInquiryPopup] = useState(false);
   // Sample itinerary data if not provided
   const defaultItinerary = [
-    { day: 1, activity: "Arrival and welcome dinner", description: "Arrive at the destination and enjoy a traditional welcome dinner." },
-    { day: 2, activity: "Morning safari drive", description: "Early morning game drive to spot wildlife at their most active time." },
-    { day: 3, activity: "Cultural village visit", description: "Experience local culture and traditions with a guided village tour." }
+    {
+      day: 1,
+      activity: "Arrival and welcome dinner",
+      description:
+        "Arrive at the destination and enjoy a traditional welcome dinner.",
+    },
+    {
+      day: 2,
+      activity: "Morning safari drive",
+      description:
+        "Early morning game drive to spot wildlife at their most active time.",
+    },
+    {
+      day: 3,
+      activity: "Cultural village visit",
+      description:
+        "Experience local culture and traditions with a guided village tour.",
+    },
   ];
-  
+
   const itineraryData = itinerary || defaultItinerary;
 
   return (
     <div className="pt-20">
       {/* Add the OrderPopup component near the top of your return */}
-       <OrderPopup orderPopup={orderPopup} setOrderPopup={setOrderPopup} />
+      <OrderPopup
+        orderPopup={orderPopup}
+        setOrderPopup={setOrderPopup}
+        packageData={{ title, img, price }} // pass package info
+      />
       {/* Hero Image */}
       <div className="h-[400px] overflow-hidden relative">
         <img
@@ -35,7 +73,9 @@ const PackageDetails = () => {
             <h1 className="text-4xl font-bold text-white">{title}</h1>
             <div className="flex items-center mt-2 text-white/90">
               <FiMapPin className="mr-1" />
-              <span className="text-sm">{additionalInfo?.location || "Various Locations"}</span>
+              <span className="text-sm">
+                {additionalInfo?.location || "Various Locations"}
+              </span>
             </div>
           </div>
         </div>
@@ -54,8 +94,8 @@ const PackageDetails = () => {
                 <span className="text-gray-500 ml-2">per person</span>
               </div>
             </div>
-          
-            <button 
+
+            <button
               onClick={() => setOrderPopup(true)}
               className="mt-4 md:mt-0 px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors font-medium"
             >
@@ -66,19 +106,24 @@ const PackageDetails = () => {
 
         {/* Navigation Tabs */}
         <div className="flex overflow-x-auto mb-8 border-b border-gray-200 dark:border-gray-700">
-          {['overview', 'itinerary', 'special-notes', 'additional-info'].map((tab) => (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
-              className={`px-6 py-3 font-medium whitespace-nowrap ${
-                activeTab === tab
-                  ? "border-b-2 border-primary text-primary"
-                  : "text-gray-500 hover:text-gray-700 dark:hover:text-gray-300"
-              }`}
-            >
-              {tab.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
-            </button>
-          ))}
+          {["overview", "itinerary", "special-notes", "additional-info"].map(
+            (tab) => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                className={`px-6 py-3 font-medium whitespace-nowrap ${
+                  activeTab === tab
+                    ? "border-b-2 border-primary text-primary"
+                    : "text-gray-500 hover:text-gray-700 dark:hover:text-gray-300"
+                }`}
+              >
+                {tab
+                  .split("-")
+                  .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                  .join(" ")}
+              </button>
+            )
+          )}
         </div>
 
         {/* Two Column Layout */}
@@ -86,14 +131,16 @@ const PackageDetails = () => {
           {/* Main Content Column (2/3 width) */}
           <div className="lg:col-span-2">
             {/* Tab Content */}
-            {activeTab === 'overview' && (
+            {activeTab === "overview" && (
               <div>
                 <h2 className="text-2xl font-semibold mb-4 flex items-center">
                   <FiInfo className="mr-2 text-primary" />
                   Overview
                 </h2>
-                <p className="text-gray-700 dark:text-gray-300 mb-6">{overview || description}</p>
-                
+                <p className="text-gray-700 dark:text-gray-300 mb-6">
+                  {overview || description}
+                </p>
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                   <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
                     <h3 className="font-medium flex items-center">
@@ -124,19 +171,21 @@ const PackageDetails = () => {
                       )}
                     </ul>
                   </div>
-                  
+
                   <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
                     <h3 className="font-medium flex items-center">
                       <FiClock className="mr-2 text-primary" />
                       Duration
                     </h3>
-                    <p className="mt-2">{additionalInfo?.duration || "7 days / 6 nights"}</p>
+                    <p className="mt-2">
+                      {additionalInfo?.duration || "7 days / 6 nights"}
+                    </p>
                   </div>
                 </div>
               </div>
             )}
 
-            {activeTab === 'itinerary' && (
+            {activeTab === "itinerary" && (
               <div>
                 <h2 className="text-2xl font-semibold mb-4 flex items-center">
                   <FiCalendar className="mr-2 text-primary" />
@@ -144,19 +193,24 @@ const PackageDetails = () => {
                 </h2>
                 <div className="space-y-6">
                   {itineraryData.map((day, index) => (
-                    <div key={index} className="border-l-2 border-primary pl-6 pb-6 relative">
+                    <div
+                      key={index}
+                      className="border-l-2 border-primary pl-6 pb-6 relative"
+                    >
                       <div className="absolute -left-3 top-0 w-6 h-6 rounded-full bg-primary flex items-center justify-center text-white font-bold">
                         {day.day}
                       </div>
                       <h3 className="text-lg font-medium">{day.activity}</h3>
-                      <p className="text-gray-600 dark:text-gray-400 mt-2">{day.description}</p>
+                      <p className="text-gray-600 dark:text-gray-400 mt-2">
+                        {day.description}
+                      </p>
                     </div>
                   ))}
                 </div>
               </div>
             )}
 
-            {activeTab === 'special-notes' && (
+            {activeTab === "special-notes" && (
               <div>
                 <h2 className="text-2xl font-semibold mb-4">Special Notes</h2>
                 <div className="prose dark:prose-invert max-w-none">
@@ -181,9 +235,11 @@ const PackageDetails = () => {
               </div>
             )}
 
-            {activeTab === 'additional-info' && (
+            {activeTab === "additional-info" && (
               <div>
-                <h2 className="text-2xl font-semibold mb-4">Additional Information</h2>
+                <h2 className="text-2xl font-semibold mb-4">
+                  Additional Information
+                </h2>
                 <div className="prose dark:prose-invert max-w-none">
                   {additionalInfo?.details || (
                     <>
@@ -195,7 +251,12 @@ const PackageDetails = () => {
                         <li>Personal medications</li>
                       </ul>
                       <h3 className="mt-6">Cancellation Policy</h3>
-                      <p>Full refund available for cancellations made at least 30 days before departure. Cancellations within 14-29 days receive a 50% refund. No refunds for cancellations within 14 days of departure.</p>
+                      <p>
+                        Full refund available for cancellations made at least 30
+                        days before departure. Cancellations within 14-29 days
+                        receive a 50% refund. No refunds for cancellations
+                        within 14 days of departure.
+                      </p>
                     </>
                   )}
                 </div>
@@ -212,8 +273,12 @@ const PackageDetails = () => {
                   {author?.charAt(0) || "A"}
                 </div>
                 <div className="ml-4">
-                  <h4 className="font-medium">Written by {author || "Admin"}</h4>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">on {date || "June 15, 2023"}</p>
+                  <h4 className="font-medium">
+                    Written by {author || "Admin"}
+                  </h4>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">
+                    on {date || "June 15, 2023"}
+                  </p>
                 </div>
               </div>
             </div>
@@ -224,19 +289,27 @@ const PackageDetails = () => {
               <div className="space-y-3">
                 <div className="flex items-start">
                   <span className="text-primary mr-2">•</span>
-                  <span>Group Size: {additionalInfo?.groupSize || "4-12 people"}</span>
+                  <span>
+                    Group Size: {additionalInfo?.groupSize || "4-12 people"}
+                  </span>
                 </div>
                 <div className="flex items-start">
                   <span className="text-primary mr-2">•</span>
-                  <span>Difficulty: {additionalInfo?.difficulty || "Moderate"}</span>
+                  <span>
+                    Difficulty: {additionalInfo?.difficulty || "Moderate"}
+                  </span>
                 </div>
                 <div className="flex items-start">
                   <span className="text-primary mr-2">•</span>
-                  <span>Best Time: {additionalInfo?.bestTime || "June - October"}</span>
+                  <span>
+                    Best Time: {additionalInfo?.bestTime || "June - October"}
+                  </span>
                 </div>
                 <div className="flex items-start">
                   <span className="text-primary mr-2">•</span>
-                  <span>Age Range: {additionalInfo?.ageRange || "12+ years"}</span>
+                  <span>
+                    Age Range: {additionalInfo?.ageRange || "12+ years"}
+                  </span>
                 </div>
               </div>
             </div>
@@ -244,8 +317,13 @@ const PackageDetails = () => {
             {/* Inquiries Card */}
             <div className="bg-primary/10 p-6 rounded-lg border border-primary/20">
               <h3 className="font-semibold mb-3">Have Questions?</h3>
-              <p className="text-sm mb-4">Our travel experts are here to help you plan your perfect trip.</p>
-              <button className="w-full px-4 py-2 bg-primary text-white rounded hover:bg-primary/90 transition-colors">
+              <p className="text-sm mb-4">
+                Our travel experts are here to help you plan your perfect trip.
+              </p>
+              <button
+                onClick={() => setInquiryPopup(true)}
+                className="w-full px-4 py-2 bg-primary text-white rounded hover:bg-primary/90 transition-colors"
+              >
                 Contact Us
               </button>
             </div>
@@ -257,6 +335,10 @@ const PackageDetails = () => {
       <div className="mt-16">
         <BlogsComp />
       </div>
+      <InquiryPopup
+        inquiryPopup={inquiryPopup}
+        setInquiryPopup={setInquiryPopup}
+      />
     </div>
   );
 };

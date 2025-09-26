@@ -1,21 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import Navibar from "../components/Navibar/Navibar";
 import { Outlet, Link } from "react-router-dom";
 import Footer from "../components/Footer/Footer";
 import OrderPopup from "../components/OrderPopup/OrderPopup";
+import InquiryPopup from "../components/OrderPopup/InquiryPopup";
 
 const Layout = () => {
-  const [orderPopup, setOrderPopup] = React.useState(false);
+  const [inquiryPopup, setInquiryPopup] = useState(false);
 
-  const handleOrderPopup = () => {
-    setOrderPopup(!orderPopup);
-  };
+const handleInquiryPopup = () => {
+  setInquiryPopup(true);
+};
   return (
     <>
-      <Navibar handleOrderPopup={handleOrderPopup} />
+     <Navibar handleInquiryPopup={handleInquiryPopup} />
       <Outlet />
       <Footer />
-      <OrderPopup orderPopup={orderPopup} setOrderPopup={setOrderPopup} />
+      <InquiryPopup inquiryPopup={inquiryPopup} setInquiryPopup={setInquiryPopup} />
     </>
   );
 };

@@ -73,7 +73,7 @@ const Footer = () => {
               <div className="flex items-center gap-3 mt-3">
                
                 <IoIosMail />
-                <p>info@eniday.com</p>
+                <p>info@enidaytours.com</p>
               </div>
               {/* social handles */}
               <div>
